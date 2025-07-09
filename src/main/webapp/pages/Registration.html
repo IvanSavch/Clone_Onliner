@@ -6,8 +6,14 @@
 </head>
 <body>
 <form th:action="@{/registration}" th:object="${user}" method="post" >
-    <input th:field="*{name}" placeholder="name">
+    <input th:field="*{name}" placeholder="name" >
+    <br>
+    <p th:errors="*{name}"></p>
+    <br>
     <input type="password" th:field="*{password}" placeholder="password">
+    <br>
+    <p th:errors="*{password}"></p>
+    <br>
     <select th:field="*{role}">
         <option value="BUYER">Buyer</option>
         <option value="SELLER">Seller</option>

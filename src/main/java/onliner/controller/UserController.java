@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.PersistenceException;
@@ -29,10 +30,18 @@ public class UserController {
     @PostMapping("/registration")
     public String registration(@Valid @ModelAttribute User user, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
+            for (FieldError fieldError : bindingResult.getFieldErrors()) {
+                model.addAttribute(fieldError.getField(),fieldError.getDefaultMessage());
+            }
+            return "Registration";
+        }
+
+        try {
+            userService.save(user);
+        }catch (PersistenceException e){
             model.addAttribute("nameExist", "This name exist");
             return "Registration";
         }
-        userService.save(user);
         return "Registration";
     }
 

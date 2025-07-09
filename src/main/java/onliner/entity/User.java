@@ -5,9 +5,10 @@ import lombok.Data;
 import onliner.common.Role;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 @Entity
 @Data
@@ -17,14 +18,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @NotEmpty
-    @NotBlank
+    @NotBlank(message = "Name cannot be empty")
     private String name;
 
-    @NotNull
-    @NotEmpty
-    @NotBlank
+    @NotBlank(message = "Password cannot be empty")
+    @Size(min = 8,message = "password must contain 8 characters")
     private String password;
     private Role role;
     private byte[] img;
