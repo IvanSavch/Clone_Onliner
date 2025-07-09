@@ -23,10 +23,10 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Optional<User> findByName(User user) {
+    public User findByName(User user) {
         Session session = sessionFactory.openSession();
         Query<User> query = session.createQuery("from User where name = :name", User.class);
         query.setParameter("name",user.getName());
-        return Optional.ofNullable(query.getSingleResult());
+        return query.getSingleResult();
     }
 }
