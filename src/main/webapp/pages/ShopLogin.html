@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop login</title>
+</head>
+<body>
+<form method="post" th:object="${shop}" th:action="@{/shop/login}">
+  <input th:field="*{name}" placeholder="Name">
+    <input th:field="*{passportNumber}" placeholder="Passport number">
+    <button>Enter</button>
+</form>
+</body>
+</html>

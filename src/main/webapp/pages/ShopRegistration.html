@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+</head>
+<body>
+<div>
+    <form method="post" th:action="@{/shop/registration}" th:object="${shop}">
+        <input th:field="*{name}" placeholder="Name">
+        <br>
+        <input th:field="*{passportNumber}" placeholder="Passport number">
+        <br>
+        <input th:field="*{mobileNumber}" placeholder="Mobile number">
+        <br>
+        <input th:field="*{nameShop}" placeholder="name shop">
+        <br>
+        <input th:field="*{address}" placeholder="address">
+        <br>
+        <button>Enter</button>
+    </form>
+</div>
+</body>
+</html>

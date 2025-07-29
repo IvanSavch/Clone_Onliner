@@ -8,12 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.NestedServletException;
 
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.Optional;
 
 
 @Controller
@@ -54,9 +53,10 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute User user, Model model) {
+    public String login(@ModelAttribute User user, HttpSession session, Model model) {
         try {
             if (userService.findByName(user).getPassword().equals(user.getPassword())){
+                session.setAttribute("user", user);
                 return "redirect:/catalog";
             }
         }catch (NoResultException e){
