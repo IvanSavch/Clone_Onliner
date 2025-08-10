@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add mobile</title>
+</head>
+<body>
+<div>
+    <form th:action="@{/add/mobile}" method="post" th:object="${mobile}">
+        <fieldset>
+            <legend>Main info</legend>
+            <input th:field="*{brand}" placeholder="brand">
+            <br>
+            <input th:field="*{model}" placeholder="model">
+            <br>
+            <input th:field="*{price}" placeholder="price">
+            <br>
+            <input th:field="*{description}" placeholder="description">
+            <br>
+            <input th:field="*{quantity}" placeholder="quantity">
+            <br>
+            <input th:field="*{length}" placeholder="length">
+            <br>
+            <input th:field="*{width}" placeholder="width">
+            <br>
+            <input th:field="*{thickness}" placeholder="thickness">
+            <br>
+            <input th:field="*{weight}" placeholder="weight">
+            <br>
+            <input th:field="*{color}" placeholder="Color">
+            <br>
+            <input th:field="*{os}" placeholder="OS">
+            <br>
+            <input type="file" th:field="*{img}" accept="image/*" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Camera</legend>
+            <input th:field="*{modelCamera}" placeholder="Model">
+            <br>
+            <input th:field="*{mainCamera}" placeholder="Main camera">
+            <br>
+            <input th:field="*{ultraWide}" placeholder="Ultra wide">
+            <br>
+            <input th:field="*{telephoto}" placeholder="Telephoto">
+            <br>
+            <input th:field="*{frontCamera}" placeholder="Front camera">
+            <br>
+            <input th:field="*{numberOfCameraModules}" placeholder="Number of camera modules">
+            <br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Processor</legend>
+            <input th:field="*{modelProcessor}" placeholder="name">
+            <br>
+            <input th:field="*{platform}" placeholder="platform">
+            <br>
+            <input th:field="*{processorClockSpeed}" placeholder="processorClockSpeed">
+            <br>
+            <input th:field="*{numberOfCores}" placeholder="numberOfCores">
+            <br>
+            <input th:field="*{processorBitDepth}" placeholder="processorBitDepth">
+        </fieldset>
+
+        <fieldset>
+            <legend>Screen</legend>
+            <input th:field="*{modelScreen}" placeholder="model">
+            <br>
+            <input th:field="*{numberOfScreenColors}" placeholder="numberOfScreenColors">
+            <br>
+            <input th:field="*{screenResolution}" placeholder="screenResolution">
+            <br>
+            <input th:field="*{aspectRatio}" placeholder="aspectRatio">
+            <br>
+            <input th:field="*{scratchProtection}" placeholder="scratchProtection">
+        </fieldset>
+        <button>Enter</button>
+    </form>
+</div>
+</body>
+</html>

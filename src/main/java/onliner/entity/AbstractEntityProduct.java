@@ -16,7 +16,9 @@ public class AbstractEntityProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
-    private String nameProduct;
+    private String brand;
+    @NotBlank
+    private String model;
     @NotNull
     private BigDecimal price;
 
@@ -26,8 +28,9 @@ public class AbstractEntityProduct {
     @NotNull
     private long quantity;
 
-    public AbstractEntityProduct(String nameProduct, BigDecimal price, byte[] img, String description, long quantity) {
-        this.nameProduct = nameProduct;
+    public AbstractEntityProduct(String brand, String model, BigDecimal price, byte[] img, String description, long quantity) {
+        this.brand = brand;
+        this.model = model;
         this.price = price;
         this.img = img;
         this.description = description;

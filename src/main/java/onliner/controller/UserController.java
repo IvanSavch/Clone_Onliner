@@ -55,17 +55,16 @@ public class UserController {
     @PostMapping("/login")
     public String login(@ModelAttribute User user, HttpSession session, Model model) {
         try {
-            if (userService.findByName(user).getPassword().equals(user.getPassword())){
-                session.setAttribute("user", user);
+            if (userService.findByName(user).getPassword().equals(user.getPassword())) {
+                session.setAttribute("sessionUser", user);
                 return "redirect:/catalog";
             }
-        }catch (NoResultException e){
-            model.addAttribute("userError","User not found");
+        } catch (NoResultException e) {
+            model.addAttribute("userError", "User not found");
             return "Login";
         }
-        model.addAttribute("Incorrect","Incorrect login or password");
+        model.addAttribute("Incorrect", "Incorrect login or password");
         return "Login";
     }
-
 
 }

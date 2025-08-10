@@ -1,5 +1,6 @@
 package onliner.controller;
 
+import net.bytebuddy.matcher.StringMatcher;
 import onliner.entity.Shop;
 import onliner.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.persistence.NoResultException;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/shop")
@@ -36,9 +38,11 @@ public class ShopController {
     }
 
     @PostMapping("/login")
-    public String shopLogin(@ModelAttribute Shop shop,Model model){
+    public String shopLogin(@ModelAttribute Shop shop, HttpSession session,Model model){
         try {
-            if (shopService.findByName(shop).getPassportNumber().equals(shop.getPassportNumber())) {
+            Shop byName = shopService.findByName(shop);
+            if (byName.getPassportNumber().equals(shop.getPassportNumber())) {
+                session.setAttribute("sessionShop",byName);
                 return "redirect:/shop";
             }
         }catch (NoResultException e){
@@ -52,6 +56,11 @@ public class ShopController {
     @GetMapping
     public String home(){
         return "ShopHome";
+    }
+
+    @GetMapping("/add")
+    public String addProduct(){
+        return "AddProduct";
     }
 
 }

@@ -1,8 +1,6 @@
 package onliner.controller;
 
-import onliner.dao.mobile.MobileDao;
 import onliner.dto.MobileDto;
-import onliner.entity.mobile.MainCamera;
 import onliner.entity.mobile.Mobile;
 import onliner.mapper.MobileMapper;
 import onliner.service.MobileService;

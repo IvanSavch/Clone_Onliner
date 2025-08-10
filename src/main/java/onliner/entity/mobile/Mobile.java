@@ -1,49 +1,48 @@
 package onliner.entity.mobile;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import onliner.entity.AbstractEntityProduct;
 import onliner.entity.Shop;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Data
 @Entity
 public class Mobile extends AbstractEntityProduct {
-    @OneToOne
-    private Construction construction;
-    @OneToOne
-    private DimensionsAndWeight dimensionsAndWeight;
-    @OneToOne
-    private FrontCamera frontCamera;
-    @OneToOne
-    private MainCamera mainCamera;
-    @OneToOne
+
+    private String length;
+    private String width;
+    private String thickness;
+    private String weight;
+    private String color;
+    private String os;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Camera camera;
+    @ManyToOne(cascade = CascadeType.ALL )
     private ProcessorMobile processor;
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Screen screen;
     @OneToOne
     private Shop shop;
 
 
-
-    public Mobile(String nameProduct, BigDecimal price, byte[] img, String description, long quantity, Construction construction, DimensionsAndWeight dimensionsAndWeight, FrontCamera frontCamera, MainCamera mainCamera, ProcessorMobile processor, Screen screen) {
-        super(nameProduct, price, img, description, quantity);
-        this.construction = construction;
-        this.dimensionsAndWeight = dimensionsAndWeight;
-        this.frontCamera = frontCamera;
-        this.mainCamera = mainCamera;
+    public Mobile(String brand, String model, BigDecimal price, byte[] img, String description, long quantity, String length, String width, String thickness, String weight, String color, String os, Camera camera, ProcessorMobile processor, Screen screen) {
+        super(brand, model, price, img, description, quantity);
+        this.length = length;
+        this.width = width;
+        this.thickness = thickness;
+        this.weight = weight;
+        this.color = color;
+        this.os = os;
+        this.camera = camera;
         this.processor = processor;
         this.screen = screen;
-
     }
 
     public Mobile() {
 
     }
-
 
 }

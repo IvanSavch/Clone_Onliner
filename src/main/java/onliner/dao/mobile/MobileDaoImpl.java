@@ -16,7 +16,7 @@ public class MobileDaoImpl implements MobileDao {
 
     @Override
     public void save(Mobile mobile) {
-        sessionFactory.openSession().save(mobile);
+        sessionFactory.getCurrentSession().save(mobile);
     }
 
 }
