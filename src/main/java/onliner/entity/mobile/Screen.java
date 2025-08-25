@@ -28,4 +28,8 @@ public class Screen {
         this.aspectRatio = aspectRatio;
         this.scratchProtection = scratchProtection;
     }
+
+    public Screen() {
+
+    }
 }

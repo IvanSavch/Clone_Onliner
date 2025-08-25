@@ -13,7 +13,6 @@ public class MobileDto {
     private String model;
     private BigDecimal price;
     private byte[] img;
-    private String description;
     private long quantity;
 
     private String length;

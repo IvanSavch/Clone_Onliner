@@ -23,7 +23,6 @@ public class User {
     @NotBlank(message = "Password cannot be empty")
     @Size(min = 8, message = "password must contain 8 characters")
     private String password;
-    private byte[] img;
 
 
 }

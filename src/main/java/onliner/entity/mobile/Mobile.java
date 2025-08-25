@@ -1,6 +1,7 @@
 package onliner.entity.mobile;
 
 import lombok.Data;
+import lombok.ToString;
 import onliner.entity.AbstractEntityProduct;
 import onliner.entity.Shop;
 
@@ -9,6 +10,7 @@ import java.math.BigDecimal;
 
 @Data
 @Entity
+@ToString
 public class Mobile extends AbstractEntityProduct {
 
     private String length;
@@ -28,8 +30,8 @@ public class Mobile extends AbstractEntityProduct {
     private Shop shop;
 
 
-    public Mobile(String brand, String model, BigDecimal price, byte[] img, String description, long quantity, String length, String width, String thickness, String weight, String color, String os, Camera camera, ProcessorMobile processor, Screen screen) {
-        super(brand, model, price, img, description, quantity);
+    public Mobile(String brand, String model, BigDecimal price, byte[] img, long quantity, String length, String width, String thickness, String weight, String color, String os, Camera camera, ProcessorMobile processor, Screen screen) {
+        super(brand, model, price, img, quantity);
         this.length = length;
         this.width = width;
         this.thickness = thickness;

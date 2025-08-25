@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class MobileService {
@@ -28,6 +29,11 @@ public class MobileService {
     @Transactional
     public void save(Mobile mobile) {
         mobileDao.save(mobile);
+    }
+
+    @Transactional
+    public List<Mobile> getAllMobile(){
+        return mobileDao.getAllMobile();
     }
 
     public Mobile createMobile(MobileDto mobileDto) {
@@ -72,7 +78,6 @@ public class MobileService {
                 mobileDto.getModel(),
                 mobileDto.getPrice(),
                 mobileDto.getImg(),
-                mobileDto.getDescription(),
                 mobileDto.getQuantity(),
                 mobileDto.getLength(),
                 mobileDto.getWidth(),

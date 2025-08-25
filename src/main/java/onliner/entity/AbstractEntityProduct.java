@@ -1,6 +1,7 @@
 package onliner.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -11,7 +12,8 @@ import java.math.BigDecimal;
 
 @MappedSuperclass
 @NoArgsConstructor
-public class AbstractEntityProduct {
+@Data
+public abstract class AbstractEntityProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,17 +25,14 @@ public class AbstractEntityProduct {
     private BigDecimal price;
 
     private byte[] img;
-    @NotBlank
-    private String description;
     @NotNull
     private long quantity;
 
-    public AbstractEntityProduct(String brand, String model, BigDecimal price, byte[] img, String description, long quantity) {
+    public AbstractEntityProduct(String brand, String model, BigDecimal price, byte[] img, long quantity) {
         this.brand = brand;
         this.model = model;
         this.price = price;
         this.img = img;
-        this.description = description;
         this.quantity = quantity;
     }
 }

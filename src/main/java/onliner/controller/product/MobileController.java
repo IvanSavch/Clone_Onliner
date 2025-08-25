@@ -3,7 +3,6 @@ package onliner.controller.product;
 import onliner.dto.MobileDto;
 import onliner.entity.Shop;
 import onliner.entity.mobile.Mobile;
-import onliner.mapper.MobileMapper;
 import onliner.service.MobileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +30,7 @@ public class MobileController {
         Mobile mobile = mobileService.createMobile(mobileDto);
         mobile.setShop(shop);
         mobileService.save(mobile);
-        return "AddMobile";
+        return "redirect:/shop/add";
     }
 
 }

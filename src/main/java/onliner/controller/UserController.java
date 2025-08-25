@@ -1,6 +1,7 @@
 package onliner.controller;
 
 import onliner.entity.User;
+import onliner.entity.mobile.Mobile;
 import onliner.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

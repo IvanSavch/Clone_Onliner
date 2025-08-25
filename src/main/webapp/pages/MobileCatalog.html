@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Catalog</title>
+</head>
+<body>
+<tr th:each="mobile: ${allMobile}">
+    <tb th:text="${mobile.brand}" />
+    <br>
+    <tb th:text="${mobile.model}" />
+    <br>
+    <tb th:text="${mobile.price}" />
+    <br>
+    <tb th:text="${mobile.os}" />
+    <br>
+    <tb th:text="${mobile.color}" />
+    <br>
+    <tb th:text="${mobile.length}" />
+    <br>
+    <tb th:text="${mobile.weight}" />
+    <br>
+    <tb th:text="${mobile.thickness}" />
+    <br>
+    <tb th:text="${mobile.getCamera().modelCamera}" />
+    <br>
+    <tb th:text="${mobile.getCamera().mainCamera}" />
+    <br>
+    <tb th:text="${mobile.getCamera().ultraWide}" />
+    <br>
+    <tb th:text="${mobile.getCamera().telephoto}" />
+    <br>
+    <tb th:text="${mobile.getCamera().frontCamera}" />
+    <br>
+    <tb th:text="${mobile.getCamera().numberOfCameraModules}" />
+    <br>
+    <tb th:text="${mobile.getProcessor().model}" />
+    <br>
+    <tb th:text="${mobile.getProcessor().platform}" />
+    <br>
+    <tb th:text="${mobile.getProcessor().processorClockSpeed}" />
+    <br>
+    <tb th:text="${mobile.getProcessor().numberOfCores}" />
+    <br>
+    <tb th:text="${mobile.getProcessor().processorBitDepth}" />
+    <br>
+    <tb th:text="${mobile.getScreen().modelScreen}" />
+    <br>
+    <tb th:text="${mobile.getScreen().numberOfScreenColors}" />
+    <br>
+    <tb th:text="${mobile.getScreen().screenResolution}" />
+    <br>
+    <tb th:text="${mobile.getScreen().aspectRatio}" />
+    <br>
+    <tb th:text="${mobile.getScreen().scratchProtection}" />
+    <br>
+
+</tr>
+</body>
+</html>

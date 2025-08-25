@@ -28,7 +28,7 @@ public class ShopController {
     @PostMapping("/registration")
     public String shopRegistration(@ModelAttribute Shop shop){
         shopService.save(shop);
-        return "ShopRegistration";
+        return "redirect:/shop/login";
     }
 
     @GetMapping("login")
