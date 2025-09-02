@@ -1,4 +1,4 @@
-package onliner.controller;
+package onliner.controller.shop;
 
 import net.bytebuddy.matcher.StringMatcher;
 import onliner.entity.Shop;

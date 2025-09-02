@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 @Data
 public class MobileDto {
 
-    private String brand;
     private String model;
     private BigDecimal price;
     private byte[] img;

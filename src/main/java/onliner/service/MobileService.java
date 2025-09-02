@@ -74,8 +74,7 @@ public class MobileService {
                     mobileDto.getScratchProtection());
         }
 
-        return new Mobile(mobileDto.getBrand(),
-                mobileDto.getModel(),
+        return new Mobile(mobileDto.getModel(),
                 mobileDto.getPrice(),
                 mobileDto.getImg(),
                 mobileDto.getQuantity(),

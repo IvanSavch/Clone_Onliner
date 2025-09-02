@@ -5,18 +5,23 @@ import onliner.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class UserService {
 
     @Autowired
     private UserDao userDao;
-    public void save(User user){
+
+    @Transactional
+    public void save(User user) {
         userDao.save(user);
     }
 
-    public User findByName(User user){
+    @Transactional
+    public User findByName(User user) {
         return userDao.findByName(user);
     }
+
 }

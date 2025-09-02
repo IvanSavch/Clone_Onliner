@@ -5,16 +5,19 @@
     <title>Mobile Catalog</title>
 </head>
 <body>
+
 <tr th:each="mobile: ${allMobile}">
-    <tb th:text="${mobile.brand}" />
-    <br>
+    <form th:action="@{/catalog/mobile}" method="post">
     <tb th:text="${mobile.model}" />
+    <input name="model" type="hidden" th:value="${mobile.model}">
     <br>
     <tb th:text="${mobile.price}" />
+    <input name="price" type="hidden" th:value="${mobile.price}">
     <br>
     <tb th:text="${mobile.os}" />
     <br>
     <tb th:text="${mobile.color}" />
+    <input name="color" type="hidden" th:value="${mobile.color}">
     <br>
     <tb th:text="${mobile.length}" />
     <br>
@@ -54,7 +57,10 @@
     <br>
     <tb th:text="${mobile.getScreen().scratchProtection}" />
     <br>
+        <button th:if="${session.sessionUser}">In basket</button>
+    </form>
 
 </tr>
+
 </body>
 </html>

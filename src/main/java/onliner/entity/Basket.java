@@ -1,18 +1,30 @@
 package onliner.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
+@Data
 public class Basket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long idProduct;
-    private String typeProduct;
+    private BigDecimal price;
+    private String name;
 
+    @OneToOne
+    private User user;
 
+    public Basket(BigDecimal price, String name, User user) {
+        this.price = price;
+        this.name = name;
+        this.user = user;
+    }
+
+    public Basket() {
+
+    }
 }

@@ -9,8 +9,6 @@
     <form th:action="@{/add/mobile}" method="post" th:object="${mobile}">
         <fieldset>
             <legend>Main info</legend>
-            <input th:field="*{brand}" placeholder="brand">
-            <br>
             <input th:field="*{model}" placeholder="model">
             <br>
             <input th:field="*{price}" placeholder="price">

@@ -1,4 +1,4 @@
-package onliner.controller.product;
+package onliner.controller.shop;
 
 import onliner.dto.MobileDto;
 import onliner.entity.Shop;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/add")
-public class MobileController {
+public class ShopMobileController {
     @Autowired
     private MobileService mobileService;
     @GetMapping("/mobile")

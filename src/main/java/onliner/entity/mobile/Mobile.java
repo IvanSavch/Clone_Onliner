@@ -30,8 +30,8 @@ public class Mobile extends AbstractEntityProduct {
     private Shop shop;
 
 
-    public Mobile(String brand, String model, BigDecimal price, byte[] img, long quantity, String length, String width, String thickness, String weight, String color, String os, Camera camera, ProcessorMobile processor, Screen screen) {
-        super(brand, model, price, img, quantity);
+    public Mobile(String model, BigDecimal price, byte[] img, long quantity, String length, String width, String thickness, String weight, String color, String os, Camera camera, ProcessorMobile processor, Screen screen) {
+        super(model, price, img, quantity);
         this.length = length;
         this.width = width;
         this.thickness = thickness;

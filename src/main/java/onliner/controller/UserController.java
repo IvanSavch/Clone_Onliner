@@ -57,7 +57,7 @@ public class UserController {
     public String login(@ModelAttribute User user, HttpSession session, Model model) {
         try {
             if (userService.findByName(user).getPassword().equals(user.getPassword())) {
-                session.setAttribute("sessionUser", user);
+                session.setAttribute("sessionUser", userService.findByName(user));
                 return "redirect:/catalog";
             }
         } catch (NoResultException e) {

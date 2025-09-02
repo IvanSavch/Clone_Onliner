@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import java.util.Optional;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -19,14 +19,18 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void save(User user) {
-        sessionFactory.openSession().save(user);
+        sessionFactory.getCurrentSession().save(user);
     }
 
     @Override
     public User findByName(User user) {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         Query<User> query = session.createQuery("from User where name = :name", User.class);
-        query.setParameter("name",user.getName());
+        query.setParameter("name", user.getName());
         return query.getSingleResult();
+    }
+
+    public void updateUserBasket(){
+
     }
 }
