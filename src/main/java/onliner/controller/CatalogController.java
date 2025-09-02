@@ -1,9 +1,9 @@
 package onliner.controller;
 
 
-import onliner.dao.BasketDaoImpl;
 import onliner.entity.Basket;
 import onliner.entity.User;
+import onliner.service.BasketService;
 import onliner.service.MobileService;
 import onliner.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +24,10 @@ public class CatalogController {
     private MobileService mobileService;
 
     @Autowired
-    protected BasketDaoImpl basketDao;
+    protected BasketService basketService;
 
 
-    @Autowired
-    private UserService userService;
+
 
     @GetMapping
     public String catalog() {
@@ -44,7 +43,7 @@ public class CatalogController {
     @PostMapping("/mobile")
     public String buy(BigDecimal price ,String model, HttpSession session){
         User userSession = (User) session.getAttribute("sessionUser");
-        basketDao.save(new Basket(price,model,userSession));
+        basketService.save(new Basket(price,model,userSession));
         return "redirect:/catalog/mobile";
     }
 

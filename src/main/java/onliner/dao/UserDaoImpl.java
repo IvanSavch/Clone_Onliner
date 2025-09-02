@@ -30,7 +30,4 @@ public class UserDaoImpl implements UserDao {
         return query.getSingleResult();
     }
 
-    public void updateUserBasket(){
-
-    }
 }

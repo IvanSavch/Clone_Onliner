@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public class BasketDaoImpl {
+public class BasketDaoImpl implements BasketDao {
 
     @Autowired
     private SessionFactory sessionFactory;
