@@ -50,4 +50,9 @@ public class CatalogController {
         model.addAttribute("baskets",basketService.basketList(sessionUser));
         return "Basket";
     }
+    @PostMapping("/basket")
+    public String basket(Long id){
+        basketService.deleteByUserId(id);
+        return "redirect:/catalog/basket";
+    }
 }

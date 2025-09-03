@@ -29,4 +29,12 @@ public class BasketDaoImpl implements BasketDao {
         query.setParameter("id",user.getId());
         return query.getResultList();
     }
+
+    @Override
+    public void deleteById(Long id) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query query = currentSession.createQuery("delete from Basket where id =:id");
+        query.setParameter("id",id);
+        query.executeUpdate();
+    }
 }

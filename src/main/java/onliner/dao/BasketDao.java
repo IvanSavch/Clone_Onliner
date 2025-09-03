@@ -8,4 +8,5 @@ import java.util.List;
 public interface BasketDao {
     void save(Basket basket);
     List<Basket> findAllByUserId(User user);
+    void deleteById(Long id);
 }

@@ -6,10 +6,14 @@
 </head>
 <body>
 <tr th:each="basket: ${baskets}">
-    <tb th:text="${basket.name}"/>
-    <br>
-    <tb th:text="${basket.price}"/>
-    <br>
+    <form th:action="@{/catalog/basket}" method="post">
+        <input name="id" type="hidden" th:value="${basket.id}">
+        <tb th:text="${basket.name}"/>
+        <br>
+        <tb th:text="${basket.price}"/>
+        <br>
+        <button>delete</button>
+    </form>
 </tr>
 </body>
 </html>

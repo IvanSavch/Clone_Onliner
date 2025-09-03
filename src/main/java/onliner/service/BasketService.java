@@ -19,8 +19,12 @@ public class BasketService {
     public void save(Basket basket) {
         basketDao.save(basket);
     }
-
+    @Transactional
     public List<Basket>basketList(User user){
         return basketDao.findAllByUserId(user);
+    }
+    @Transactional
+    public void deleteByUserId(Long id){
+        basketDao.deleteById(id);
     }
 }
