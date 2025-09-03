@@ -26,9 +26,6 @@ public class CatalogController {
     @Autowired
     protected BasketService basketService;
 
-
-
-
     @GetMapping
     public String catalog() {
         return "Catalog";
@@ -41,10 +38,16 @@ public class CatalogController {
     }
 
     @PostMapping("/mobile")
-    public String buy(BigDecimal price ,String model, HttpSession session){
+    public String buy(BigDecimal price, String model, HttpSession session) {
         User userSession = (User) session.getAttribute("sessionUser");
-        basketService.save(new Basket(price,model,userSession));
+        basketService.save(new Basket(price, model, userSession));
         return "redirect:/catalog/mobile";
     }
 
+    @GetMapping("/basket")
+    public String basket(Model model, HttpSession session) {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        model.addAttribute("baskets",basketService.basketList(sessionUser));
+        return "Basket";
+    }
 }

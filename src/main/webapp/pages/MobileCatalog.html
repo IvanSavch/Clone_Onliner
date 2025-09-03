@@ -5,7 +5,7 @@
     <title>Mobile Catalog</title>
 </head>
 <body>
-
+<a href="/catalog/basket">Basket</a>
 <tr th:each="mobile: ${allMobile}">
     <form th:action="@{/catalog/mobile}" method="post">
     <tb th:text="${mobile.model}" />

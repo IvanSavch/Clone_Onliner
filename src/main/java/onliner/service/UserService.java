@@ -5,6 +5,7 @@ import onliner.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.PersistenceException;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class UserService {
     private UserDao userDao;
 
     @Transactional
-    public void save(User user) {
+    public void save(User user) throws PersistenceException {
         userDao.save(user);
     }
 

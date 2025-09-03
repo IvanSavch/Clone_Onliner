@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 
 @Data
 @Entity
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"model"})})
 @ToString
 public class Mobile extends AbstractEntityProduct {
 

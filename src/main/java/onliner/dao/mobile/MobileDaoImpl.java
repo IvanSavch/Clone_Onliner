@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.PersistenceException;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class MobileDaoImpl implements MobileDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public void save(Mobile mobile) {
+    public void save(Mobile mobile) throws PersistenceException {
         sessionFactory.getCurrentSession().save(mobile);
     }
 
